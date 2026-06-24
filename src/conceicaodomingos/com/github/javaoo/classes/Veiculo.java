@@ -5,7 +5,8 @@ public class Veiculo {
 	private String nome;
 	private String marca;
 	private String chassi;
-	private String quantidadeRodas;
+	private int quantidadeRodas;
+	private float quantidadeCombustivel;
 	
 	public String getNome() {
 		return nome;
@@ -31,12 +32,21 @@ public class Veiculo {
 		this.chassi = chassi;
 	}
 
-	public String getQuantidadeRodas() {
+	public int getQuantidadeRodas() {
 		return quantidadeRodas;
 	}
 
-	public void setQuantidadeRodas(String quantidadeRodas) {
-		this.quantidadeRodas = quantidadeRodas;
+//	NAO DEVE EXISTIR, pois ja existe um metodo para alterar a quantidade de combustivel
+//	public void setQuantidadeRodas(int quantidadeRodas) {
+//		this.quantidadeRodas = quantidadeRodas;
+//	}
+
+	public float getQuantidadeCombustivel() {
+		return quantidadeCombustivel;
+	}
+
+	public void setQuantidadeCombustivel(float quantidadeCombustivel) {
+		this.quantidadeCombustivel = quantidadeCombustivel;
 	}
 
 	public void ligar() {
@@ -45,5 +55,9 @@ public class Veiculo {
 	
 	public void desligar() {
 		System.out.println("O veículo desligou!");
+	}
+	
+	public void abastecer(float litros) {
+		quantidadeCombustivel += litros;
 	}
 }

@@ -10,6 +10,11 @@ public class Main {
 		veiculo1.setMarca("GM");
 		veiculo1.setNome("Corsa");
 		System.out.println("Nome do Veículo 1: " + veiculo1.getNome());
+		System.out.println("Quantidade de combustível do Veículo 1 antes de abastecer: " + 
+							veiculo1.getQuantidadeCombustivel());
+		veiculo1.abastecer(10);
+		System.out.println("Quantidade de combustível do Veículo 1 depois de abastecer: " + 
+				veiculo1.getQuantidadeCombustivel());
 		veiculo1.ligar();
 		
 		System.out.println();
