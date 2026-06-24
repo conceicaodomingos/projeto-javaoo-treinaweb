@@ -6,15 +6,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Veiculo corsa = new Veiculo();
-		corsa.marca = "GM";
-		corsa.nome = "Corsa";
-		corsa.ligar();
+		Veiculo veiculo1 = new Veiculo();
+		veiculo1.setMarca("GM");
+		veiculo1.setNome("Corsa");
+		System.out.println("Nome do Veículo 1: " + veiculo1.getNome());
+		veiculo1.ligar();
 		
-		Veiculo celta = new Veiculo();
-		celta.marca = "MG";
-		celta.nome = "Corsa";
-		celta.desligar();
+		System.out.println();
+		
+		Veiculo veiculo2 = new Veiculo();
+		veiculo2.setMarca("MG");
+		veiculo2.setNome("Celta");
+		System.out.println("Nome do Veículo 2: " + veiculo2.getNome());
+		veiculo2.desligar();
 		
 	}
 
