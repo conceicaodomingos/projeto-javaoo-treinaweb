@@ -11,7 +11,7 @@ public class Main {
 			
 			veiculo1.setMarca("GM");
 			veiculo1.setNome("Corsa");
-			veiculo1.setChassi("ABCD");
+			veiculo1.setChassi("ABCDE");
 			
 			System.out.println("Nome do Veículo 1: " + veiculo1.getNome());
 			System.out.println("Quantidade de combustível do Veículo 1 antes de abastecer: " + 

@@ -1,5 +1,7 @@
 package conceicaodomingos.com.github.javaoo.classes;
 
+import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
+
 public class Veiculo {
 
 	private String nome;
@@ -7,7 +9,7 @@ public class Veiculo {
 	private String chassi;
 	private int quantidadeRodas;
 	private float quantidadeCombustivel;
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -32,7 +34,7 @@ public class Veiculo {
 		if (chassi.length() == 5) {
 			this.chassi = chassi;
 		} else {
-			throw new Exception("Chassi inválido");
+			throw new ChassiInvalidoException(chassi);
 		}
 	}
 
@@ -56,11 +58,11 @@ public class Veiculo {
 	public void ligar() {
 		System.out.println("O veículo ligou!");
 	}
-	
+
 	public void desligar() {
 		System.out.println("O veículo desligou!");
 	}
-	
+
 	public void abastecer(float litros) {
 		quantidadeCombustivel += litros;
 	}
