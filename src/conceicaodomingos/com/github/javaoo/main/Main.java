@@ -1,24 +1,26 @@
 package conceicaodomingos.com.github.javaoo.main;
 
-import conceicaodomingos.com.github.javaoo.classes.Veiculo;
+import conceicaodomingos.com.github.javaoo.classes.Carro;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
 		try {
-			Veiculo veiculo1 = new Veiculo();
+			Carro veiculo1 = new Carro("Corsa", "GM");
 			
-			veiculo1.setMarca("GM");
-			veiculo1.setNome("Corsa");
 			veiculo1.setChassi("ABCDE");
 			
 			System.out.println("Nome do Veículo 1: " + veiculo1.getNome());
-			System.out.println("Quantidade de combustível do Veículo 1 antes de abastecer: " + 
-								veiculo1.getQuantidadeCombustivel());
+			System.out.println(String.format("Quantidade de combustível do %s antes de abastecer: %.2f litros", 
+								veiculo1.getNome(), veiculo1.getQuantidadeCombustivel()));
 			veiculo1.abastecer(10);
-			System.out.println("Quantidade de combustível do Veículo 1 depois de abastecer: " + 
-					veiculo1.getQuantidadeCombustivel());
+			System.out.println(String.format("Quantidade de combustível do %s depois de abastecer: %.2f litros", 
+								veiculo1.getNome(), veiculo1.getQuantidadeCombustivel()));
+			System.out.println(String.format("Quantidade de rodas do %s: %d", 
+								veiculo1.getNome(), veiculo1.getQuantidadeRodas()));
+			System.out.println(String.format("O veículo %s está ligado? %b", 
+								veiculo1.getNome(), veiculo1.isLigado()));
 			veiculo1.ligar();
 		} catch (Exception e) {
 			System.out.println("*** Ocorreu um erro: " + e.getMessage());
