@@ -1,5 +1,6 @@
 package conceicaodomingos.com.github.javaoo.classes;
 
+import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoVeiculoLigadoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
 
 public class Veiculo {
@@ -35,7 +36,7 @@ public class Veiculo {
 		return chassi;
 	}
 
-	public void setChassi(String chassi) throws Exception {
+	public void setChassi(String chassi) throws ChassiInvalidoException {
 		if (chassi.length() == 5) {
 			this.chassi = chassi;
 		} else {
@@ -74,7 +75,11 @@ public class Veiculo {
 		System.out.println("O veículo desligou!");
 	}
 
-	public void abastecer(float litros) {
-		quantidadeCombustivel += litros;
+	public void abastecer(float litros) throws AbastecimentoVeiculoLigadoException {
+		if (!this.ligado) {
+			quantidadeCombustivel += litros;
+		} else {
+			throw new AbastecimentoVeiculoLigadoException();
+		}
 	}
 }
