@@ -1,7 +1,9 @@
 package conceicaodomingos.com.github.javaoo.classes;
 
 import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoVeiculoLigadoException;
+import conceicaodomingos.com.github.javaoo.excecoes.AceleracaoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
+import conceicaodomingos.com.github.javaoo.excecoes.FreagemException;
 
 public class Veiculo {
 
@@ -10,10 +12,12 @@ public class Veiculo {
 	private String chassi;
 	protected int quantidadeRodas;
 	private float quantidadeCombustivel;
-	private Boolean ligado;
+	protected Boolean ligado;
+	protected float velocidade;
 
 	public Veiculo() {
 		this.ligado = false;
+		this.velocidade = 0;
 	}
 	
 	public String getNome() {
@@ -65,13 +69,19 @@ public class Veiculo {
 		return ligado;
 	}
 
+	public float getVelocidade() {
+		return velocidade;
+	}
+
 	public void ligar() {
 		this.ligado = true;
+		this.velocidade = 0;
 		System.out.println("O veículo ligou!");
 	}
 
 	public void desligar() {
 		this.ligado = false;
+		this.velocidade = 0;
 		System.out.println("O veículo desligou!");
 	}
 
@@ -80,6 +90,22 @@ public class Veiculo {
 			quantidadeCombustivel += litros;
 		} else {
 			throw new AbastecimentoVeiculoLigadoException();
+		}
+	}
+	
+	public void acelerar() throws AceleracaoException {
+		if (this.ligado) {
+			this.velocidade += 10;
+		} else {
+			throw new AceleracaoException();
+		}
+	}
+	
+	public void frear() throws FreagemException {
+		if (this.ligado) {
+			this.velocidade -= 10;
+		} else {
+			throw new FreagemException();
 		}
 	}
 }
