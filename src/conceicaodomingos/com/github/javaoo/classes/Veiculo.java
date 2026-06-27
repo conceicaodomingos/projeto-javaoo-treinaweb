@@ -5,7 +5,7 @@ import conceicaodomingos.com.github.javaoo.excecoes.AceleracaoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
 import conceicaodomingos.com.github.javaoo.excecoes.FreagemException;
 
-public class Veiculo {
+public abstract class Veiculo {
 
 	private String nome;
 	private String marca;
@@ -73,19 +73,19 @@ public class Veiculo {
 		return velocidade;
 	}
 
-	public void ligar() {
+	public final void ligar() {
 		this.ligado = true;
 		this.velocidade = 0;
 		System.out.println("O veículo ligou!");
 	}
 
-	public void desligar() {
+	public final void desligar() {
 		this.ligado = false;
 		this.velocidade = 0;
 		System.out.println("O veículo desligou!");
 	}
 
-	public void abastecer(float litros) throws AbastecimentoVeiculoLigadoException {
+	public final void abastecer(float litros) throws AbastecimentoVeiculoLigadoException {
 		if (!this.ligado) {
 			quantidadeCombustivel += litros;
 		} else {
@@ -108,4 +108,6 @@ public class Veiculo {
 			throw new FreagemException();
 		}
 	}
+	
+	public abstract void preparar();
 }

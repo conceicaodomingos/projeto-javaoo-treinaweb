@@ -3,7 +3,7 @@ package conceicaodomingos.com.github.javaoo.classes;
 import conceicaodomingos.com.github.javaoo.excecoes.AceleracaoException;
 import conceicaodomingos.com.github.javaoo.excecoes.FreagemException;
 
-public class Moto extends Veiculo {
+public final class Moto extends Veiculo {
 
 	public Moto() {
 		this.quantidadeRodas = 2;
@@ -31,5 +31,10 @@ public class Moto extends Veiculo {
 		} else {
 			throw new FreagemException();
 		}
+	}
+
+	@Override
+	public void preparar() {
+		System.out.println("Colocar o capacete!");
 	}
 }

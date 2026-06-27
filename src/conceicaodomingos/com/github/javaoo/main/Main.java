@@ -1,6 +1,6 @@
 package conceicaodomingos.com.github.javaoo.main;
 
-import conceicaodomingos.com.github.javaoo.classes.Moto;
+import conceicaodomingos.com.github.javaoo.classes.Carro;
 import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoVeiculoLigadoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
 
@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			var veiculo1 = new Moto("Corsa", "GM");
+			var veiculo1 = new Carro("Corsa", "GM");
 			
 			veiculo1.setChassi("ABCDE");
 			
@@ -27,6 +27,7 @@ public class Main {
 			System.out.println(String.format("O veículo %s está ligado? %b", 
 								veiculo1.getNome(), veiculo1.isLigado()));
 	
+			veiculo1.preparar();
 			veiculo1.ligar();
 			veiculo1.acelerar();
 			System.out.println(String.format("Velocidade atual do %s depois de acelerar: %.2f", 
