@@ -1,7 +1,7 @@
 package conceicaodomingos.com.github.javaoo.main;
 
 import conceicaodomingos.com.github.javaoo.classes.Carro;
-import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoVeiculoLigadoException;
+import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
 
 public class Main {
@@ -36,7 +36,7 @@ public class Main {
 			veiculo1.frear();
 			System.out.println(String.format("Velocidade atual do %s depois de frear: %.2f", 
 								veiculo1.getNome(), veiculo1.getVelocidade()));
-		} catch (AbastecimentoVeiculoLigadoException e) {
+		} catch (AbastecimentoException e) {
 			System.out.println("*** Ocorreu um erro: O veículo não pode ser abastecido enquanto estiver ligado!" );
 		} catch (ChassiInvalidoException e) {
 			System.out.println("*** Ocorreu um erro: " + e.getMessage());

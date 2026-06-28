@@ -1,11 +1,14 @@
 package conceicaodomingos.com.github.javaoo.classes;
 
-import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoVeiculoLigadoException;
+import conceicaodomingos.com.github.javaoo.excecoes.AbastecimentoException;
 import conceicaodomingos.com.github.javaoo.excecoes.AceleracaoException;
 import conceicaodomingos.com.github.javaoo.excecoes.ChassiInvalidoException;
 import conceicaodomingos.com.github.javaoo.excecoes.FreagemException;
+import conceicaodomingos.com.github.javaoo.interfaces.AndadorInterface;
+import conceicaodomingos.com.github.javaoo.interfaces.LigadorInterface;
+import conceicaodomingos.com.github.javaoo.interfaces.VeiculoInterface;
 
-public abstract class Veiculo {
+public abstract class Veiculo implements VeiculoInterface, LigadorInterface, AndadorInterface {
 
 	private String nome;
 	private String marca;
@@ -85,11 +88,11 @@ public abstract class Veiculo {
 		System.out.println("O veículo desligou!");
 	}
 
-	public final void abastecer(float litros) throws AbastecimentoVeiculoLigadoException {
+	public final void abastecer(float litros) throws AbastecimentoException {
 		if (!this.ligado) {
 			quantidadeCombustivel += litros;
 		} else {
-			throw new AbastecimentoVeiculoLigadoException();
+			throw new AbastecimentoException();
 		}
 	}
 	
